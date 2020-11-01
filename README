@@ -1,0 +1,224 @@
+We discussed the exercise with: ortal glatt.
+gadi.fleischer, gadi fleischer , 203816996
+shir_brosh , shir brosh, 316124767
+
+
+=============================
+=  README for ex12:
+=============================
+
+==================
+=  Description:  =
+in this exercise we coded the game '4 in a row' including the GUI.
+we coded 3 classes: ai,game, four_in_a_row, main_asteroids
+we will write down the following functions we coded for each class and their
+description.
+
+===================
+ai.py:
+
+1)def __init__(self, game, player):
+
+2)def is_board_full
+This method will check if the board is full. return True if full, else return
+False
+
+3)def find_legal_move
+This method find a legal move for the ai player and return a legal col(int)
+
+===================
+game.py:
+
+1)def __init__(self):
+
+2)def reset_winner(self):
+This method resets the winner for a new game
+
+3)def reset_players(self):
+This method resets the players for a new game
+
+4)def create_empty_board(self):
+This method creates an empty board
+
+5)def reset_board(self):
+This method resets the board for a new game
+
+6)def __str__(self):
+This method prints the game board.
+
+7)def get_board(self):
+This method returns the board
+
+8)def get_row_for_disc(self, col):
+This method returns the lowest free row number in the given coulomb
+if coulomb is full, return False
+
+9)def __illegal_move(self, column):
+This method receives the column number and will raise a an exception if the
+move is illegal.
+
+10)def make_move(self, column):
+This method receives a column number. if the column is 'legal' according to
+the exercise rules then the method will input the disc in to the game in
+the lowest free row in that column. the method is used for player vs player
+
+11)def make_move_pvc(self, col_player):
+This method receives a column number. if the column is 'legal' according to
+the exercise rules then the method will input the disc in to the game in
+the lowest free row in that column. the method is used for player vs computer
+
+12)def make_move_cvp(self, col_player=None):
+This method receives a column number. if the column is 'legal' according to
+the exercise rules then the method will input the disc in to the game in
+the lowest free row in that column.the method is used for computer vs player
+
+13)def make_move_cvc(self):
+This method receives a column number.if the column is 'legal' according to
+the exercise rules then the method will input the disc in to the game in the
+lowest free row in that column.the method is used for computer vs computer
+
+14)def __direction_is_horizontal(self, board):
+This method checks if one of the players has won the game horizontally.
+
+15)def __direction_is_vertical(self):
+This method checks if one of the players has won the game vertically.
+
+16)def __direction_is_diagonal_right(self, board):
+This method checks if one of the players has won the game diagonal right.
+
+17)def __direction_is_diagonal_left(self, board):
+This method checks if one of the players has won the game diagonal left.
+
+18)def __turn_board_up_side_down(self, board):
+This method receives a board and returns it upside down.
+
+19)def __turn_board_diagonal(self, board):
+This method receives a board and returns it upside down.
+
+20)def get_winner(self):
+This method will set the winner attribute to who won/tie or None, according
+to the game board.
+
+21)def get_player_at(self, row, col):
+This method receives a cell coordinate and returns the player number
+that's in it. if the cell is empty, then return None
+
+22)def get_current_player(self):
+returns players turn to play.
+
+23)def get_winner_row_col_lst_color(self, player):
+returns the winning player's last row(int),last col(int),
+move list(list of tuples) and color(string) in the the
+board. (R or B)
+
+24)def is_winner_vertical(self, last_col, last_row, move_lst):
+this method is activated when a player has won,and will search for the
+winning discs. this method will return the coordinates of the winning discs
+in a list.
+
+25)def is_winner_horizontal(self, last_row, color):
+this method is activated when a player has won,and will search for the
+winning discs horizontally.
+this method will return the coordinates of the winning discs in a list.
+
+26)def is_winner_diagonal_up_right(self, last_col, last_row, color):
+this method is activated when a player has won,and will search for the
+winning discs diagonally (up right) and (down let).
+this method will return the coordinates of the winning discs in a list.
+
+27)def is_winner_diagonal_up_left(self, last_col, last_row, color):
+this method is activated when a player has won,and will search for the
+winning discs diagonally (up left) and (down right).
+this method will return the coordinates of the winning discs in a list.
+
+28)def get_wining_discs(self, player):
+this method is activated when a player has won,and will search for the
+winning discs in all directions. it will return a list of coordinated of
+the winning discs.
+
+===================
+four_in_a_row.py:
+
+1)def __init__(self, root):
+A constructor for a MyApp object
+
+2)def create_main_menu(self):
+A method that builds the main menu- canvas and buttons
+
+3)def create_main_menu_buttons(self):
+A method that creates the main menu buttons
+
+4)def create_board_canvas(self):
+A method that creates the board canvas
+
+5)def create_arrow_button(self):
+A method that creates the arrow buttons which operates the game. each
+button will insert a disc to the column it refers to
+
+
+6)def mark_winning_ovals(self, winner_lst):
+A method that marks the winning four discs using hollow ovals objects
+
+7)def check_winner(self):
+A method that checks if someone has won the game and updates the game
+accordingly
+
+8)def press_pvp(self, col):
+A method that operates the insert of the discs in the player
+vs player version of the game
+
+9)def press_pvc(self, col):
+A method that operates the insert of the discs in the player
+vs computer version of the game
+
+10)def press_cvp(self, col):
+A method that operates the insert of the discs in the computer
+vs player version of the game
+
+11)def create_red_polygon(self):
+A method that creates a red polygon object which marks that it's the first
+player's turn to play
+
+
+12)def create_yellow_polygon(self):
+A method that creates a yellow polygon object which marks that its the
+second player's turn to play
+
+13)def create_oval_yellow_ai(self, row_ai, col_ai):
+A method that creates a yellow oval object which represents the computers
+disc
+
+14)def create_oval_red_ai(self, row_ai, col_ai):
+A method that creates a red oval object which represents the computers
+disc
+
+15)def insert_disc(self, col):
+A method that operates the press methods which operates the game itself
+
+16)def play_again_button(self):
+A method that operates the 'play again' button that appears whenever the
+game has ended
+
+17)def win_msg(self, color):
+A method that creates the win message canvas
+
+18)def pvp(self):
+A method that operates the player vs player version of the game
+
+19)def pvc(self):
+A method that operates the player vs computer version of the game
+
+20)def cvp(self):
+A method that operates the computer vs player version of the game
+
+21)def cvc(self):
+A method that operates the computer vs computer version of the game
+
+22)def play_cvc():
+This function will insert the discs for both ai
+===================
+
+
+======================
+=  Special Comments  =
+======================
